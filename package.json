@@ -16,11 +16,7 @@
     "type": "git",
     "url": "git+https://github.com/samlev/string-helpers.git"
   },
-  "keywords": [
-    "strings",
-    "string",
-    "helpers"
-  ],
+  "keywords": ["strings", "string", "helpers"],
   "author": "Samuel Levy",
   "license": "MIT",
   "bugs": {

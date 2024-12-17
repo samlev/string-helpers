@@ -1,13 +1,12 @@
-import normalize from "./normalize";
+import studly from "./studly";
 
 /**
- * Convert a string to snake_case
+ * Converts a string to Headline Case
  *
  * @param str
  */
 export default (str: string): string =>
-  normalize(str)
-    .replaceAll(/([^a-z0-9_]+)/g, "_$1")
-    .toLowerCase()
-    .replaceAll(/[^a-z0-9]+/g, "_")
-    .replace(/^_+|_+$/g, "");
+  studly(str)
+    .replaceAll(/(?<=[a-z])([A-Z0-9])/g, "_$1")
+    .replaceAll(/(?<=[0-9])([A-Za-z])/g, "_$1")
+    .toLowerCase();

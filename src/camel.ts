@@ -1,13 +1,9 @@
 import lcfirst from "./lcfirst";
-import normalize from "./normalize";
+import studly from "./studly";
 
 /**
  * Convert a string to camelCase
  *
  * @param str
  */
-export default (str: string): string => lcfirst(str
-    .split(/[^a-z0-9]/ig)
-    .map(normalize)
-    .join('')
-);
+export default (str: string): string => lcfirst(studly(str));

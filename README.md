@@ -1,3 +1,3 @@
 # String Helpers
-Some common JavasScript string helpers
+Some common JavScript string helpers, loosely based on Laravel's string helpers.
 
