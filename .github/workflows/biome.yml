@@ -1,0 +1,16 @@
+name: Biome
+
+on:
+  workflow_dispatch:
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+jobs:
+    test_biome:
+        runs-on: ubuntu-latest
+        steps:
+        - uses: actions/checkout@v4
+        - name: Set up NPM
+          uses: actions/setup-node@v4
+        - run: npm ci
+        - run: npx biome ci --reporter=github
