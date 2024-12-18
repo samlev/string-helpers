@@ -4,7 +4,7 @@ declare const _default: {
     lcfirst: (str: string) => string;
     normalize: (str: string) => string;
     random: (length?: number) => string;
-    regexp: {
+    regex: {
         sanitize: (str: string) => string;
         path: (str: string, start?: string, end?: string) => RegExp;
     };

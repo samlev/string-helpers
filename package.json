@@ -3,7 +3,16 @@
   "type": "module",
   "version": "1.0.0",
   "description": "Basic string helper functions",
+  "source": "src/index.ts",
+  "exports": {
+    "types": "./dist/index.d.ts",
+    "require": "./dist/string-helpers.cjs",
+    "default": "./dist/string-helpers.js"
+  },
+  "types": "dist/index.d.ts",
+  "module": "dist/string-helpers.js",
   "main": "dist/string-helpers.js",
+  "unpkg": "dist/string-helpers.umd.js",
   "scripts": {
     "test": "jest",
     "build": "microbundle",

@@ -1,4 +1,4 @@
-name: Build dist
+name: Build Distribution
 
 on:
   workflow_dispatch:
@@ -7,11 +7,8 @@ on:
         description: 'Target branch'
         default: 'main'
         type: string
-  workflow_run:
-    workflows: [ 'Test' ]
-    types: [ completed ]
-    branches:
-      - main
+  release:
+    types: [released]
 
 permissions:
   contents: write
@@ -19,17 +16,20 @@ permissions:
 jobs:
   build-dist:
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - uses: actions/checkout@v4
       - name: Set up NPM
         uses: actions/setup-node@v4
       - run: npm ci
+      - name: Update package.json
+        run:  npm version from-git --no-git-tag-version
       - name: Build dist
-        run: npm run build
+        run: |
+          rm -rf dist/*
+          npm run build
       - name: Commit updated assets
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "[BOT] Build distribution assets"
+          commit_message: "[BOT] Build distribution assets for ${{ github.ref_name }}"
           branch: ${{ inputs.branch || 'main' }}
-          file_pattern: "dist/**"
+          file_pattern: "package.json dist/**"

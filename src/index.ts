@@ -3,7 +3,7 @@ import headline from "./headline";
 import lcfirst from "./lcfirst";
 import normalize from "./normalize";
 import random from "./random";
-import regexp from "./regexp";
+import regex from "./regex";
 import snake from "./snake";
 import squish from "./squish";
 import studly from "./studly";
@@ -15,7 +15,7 @@ export default {
   lcfirst,
   normalize,
   random,
-  regexp,
+  regex,
   snake,
   squish,
   studly,
