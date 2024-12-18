@@ -22,6 +22,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          # Fetch entire history of repository to ensure tags can be found.
+          fetch-depth: 0
+          ref: ${{ inputs.branch || 'main' }}
       - name: Set up NPM
         uses: actions/setup-node@v4
       - run: npm ci
