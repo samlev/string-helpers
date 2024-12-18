@@ -1,0 +1,40 @@
+name: Test code
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - 'main'
+    files:
+      - 'src/**/*.ts'
+      - 'tests/**/*.ts'
+      - 'biome.json'
+      - 'jest.config.json'
+      - 'eslint.config.js'
+      - 'tsconfig.json'
+      - '.oxlintrc.json'
+      - '.github/workflows/lint.yml'
+  pull_request:
+    types: [ opened, reopened, synchronize ]
+
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+      matrix:
+        check: ['biome', 'eslint', 'oxlint', 'jest']
+        include:
+          - check: 'biome'
+            params: 'ci --reporter=github'
+
+    name: Run ${{ matrix.check }}
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up NPM
+        uses: actions/setup-node@v4
+      - run: npm ci
+      - name: Check code
+        run: npx ${{ matrix.check }} ${{ matrix.params  || '' }}

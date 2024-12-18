@@ -1,0 +1,37 @@
+name: Build dist
+
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Target branch'
+        default: 'main'
+        type: string
+  push:
+    branches:
+      - 'main'
+    files:
+      - 'package.json'
+      - 'package-lock.json'
+      - 'src/**/*.ts'
+      - '.github/workflows/build.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  build-dist:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up NPM
+        uses: actions/setup-node@v4
+      - run: npm ci
+      - name: Build dist
+        run: npm run build
+      - name: Commit updated assets
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "[automated] Build dist"
+          branch: ${{ inputs.branch || 'main' }}
+          file_pattern: "dist/**"

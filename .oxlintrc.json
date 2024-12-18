@@ -1,0 +1,27 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "env": {
+    "es2021": true
+  },
+  "plugins": ["typescript"],
+  "ignorePatterns": ["node_modules/**", "dist/**"],
+  "globals": {},
+  "settings": {},
+  "rules": {
+    "eqeqeq": "warn",
+    "import/no-cycle": "error",
+    "eslint/no-alert": "error",
+    "eslint/no-console": "warn",
+    "eslint/no-empty": "warn",
+    "eslint/no-empty-function": "warn",
+    "eslint/no-eval ": "warn"
+  },
+  "overrides": [
+    {
+      "files": ["*.test.ts", "*.spec.ts"],
+      "rules": {
+        "@typescript-eslint/no-explicit-any": "off"
+      }
+    }
+  ]
+}
