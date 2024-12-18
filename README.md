@@ -1,6 +1,6 @@
 # String Helpers
 
-[![Test](https://github.com/samlev/string-helpers/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/samlev/string-helpers/actions/workflows/test.yml)
+[![Checks](https://github.com/samlev/string-helpers/actions/workflows/checks.yml/badge.svg?branch=main)](https://github.com/samlev/string-helpers/actions/workflows/checks.yml)
 ![NPM Version](https://img.shields.io/npm/v/%40samlevy%2Fstring-helpers)
 ![NPM Last Update](https://img.shields.io/npm/last-update/%40samlevy%2Fstring-helpers)
 ![NPM License](https://img.shields.io/npm/l/%40samlevy%2Fstring-helpers)

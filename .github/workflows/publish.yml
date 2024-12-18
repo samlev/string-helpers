@@ -1,9 +1,11 @@
-name: "Publish to NPM"
+name: Publish to NPM
 
 on:
   workflow_run:
-    workflows: [ 'Build Distribution' ]
-    types: [ completed ]
+    workflows:
+      - Build Distribution
+    types:
+      - completed
     branches:
       - main
 

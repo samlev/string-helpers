@@ -1,9 +1,11 @@
-name: "Update Changelog"
+name: Update Changelog
 
 on:
   workflow_run:
-    workflows: [ 'Publish to NPM' ]
-    types: [ completed ]
+    workflows:
+      - Build Distribution
+    types:
+      - completed
     branches:
       - main
 

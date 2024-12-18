@@ -8,13 +8,17 @@ on:
         default: 'main'
         type: string
   release:
-    types: [released]
+    branches:
+      - main
+    types:
+      - released
+      - published
 
 permissions:
   contents: write
 
 jobs:
-  build-dist:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -22,7 +26,7 @@ jobs:
         uses: actions/setup-node@v4
       - run: npm ci
       - name: Update package.json
-        run:  npm version from-git --no-git-tag-version
+        run: npm version from-git --no-git-tag-version --allow-same-version
       - name: Build dist
         run: |
           rm -rf dist/*

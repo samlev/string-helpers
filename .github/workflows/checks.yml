@@ -1,4 +1,4 @@
-name: Test
+name: Checks
 
 on:
   workflow_dispatch:
@@ -8,13 +8,9 @@ on:
     files:
       - 'src/**/*.ts'
       - 'tests/**/*.ts'
-      - 'biome.json'
-      - 'jest.config.json'
-      - 'eslint.config.js'
-      - 'tsconfig.json'
-      - '.oxlintrc.json'
-      - '.github/workflows/test.yml'
-      - '.github/workflows/build.yml'
+      - '*.json'
+      - '*.config.js'
+      - '.github/workflows/checks.yml'
   pull_request:
     types: [ opened, reopened, synchronize ]
 
@@ -25,7 +21,7 @@ jobs:
       fail-fast: true
       matrix:
         node: ['18', '20', '22', 'latest']
-        check: ['biome', 'eslint', 'oxlint', 'jest']
+        check: ['biome', 'eslint', 'jest', 'oxlint']
         include:
           - check: 'biome'
             params: 'ci --reporter=github'
@@ -33,7 +29,7 @@ jobs:
           - node: '18'
             check: 'jest'
 
-    name: Run ${{ matrix.check }} (node ${{ matrix.node }})
+    name: Run ${{ matrix.check }} on node ${{ matrix.node }}
 
     steps:
       - uses: actions/checkout@v4
