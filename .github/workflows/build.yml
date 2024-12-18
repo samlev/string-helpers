@@ -32,4 +32,4 @@ jobs:
         with:
           commit_message: "[BOT] Build distribution assets for ${{ github.ref_name }}"
           branch: ${{ inputs.branch || 'main' }}
-          file_pattern: "package.json dist/**"
+          file_pattern: "package.json package-lock.json dist/**"
