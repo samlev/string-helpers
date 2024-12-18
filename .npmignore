@@ -1,0 +1,13 @@
+/.idea
+/.github
+/tests
+.editorconfig
+.gitattributes
+.gitignore
+CHANGELOG-*
+README.md
+.oxlintrc.json
+biome.json
+*.config.js
+tsconfig.json
+package-lock.json

@@ -13,28 +13,32 @@ on:
       - 'eslint.config.js'
       - 'tsconfig.json'
       - '.oxlintrc.json'
-      - '.github/workflows/lint.yml'
+      - '.github/workflows/test.yml'
   pull_request:
     types: [ opened, reopened, synchronize ]
 
 
 jobs:
-  lint:
+  check:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: true
       matrix:
+        node: ['18', '20', '22', 'latest']
         check: ['biome', 'eslint', 'oxlint', 'jest']
         include:
           - check: 'biome'
             params: 'ci --reporter=github'
 
-    name: Run ${{ matrix.check }}
+    name: Run ${{ matrix.check }} (node ${{ matrix.node }})
 
     steps:
       - uses: actions/checkout@v4
       - name: Set up NPM
         uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+          cache: 'npm'
       - run: npm ci
       - name: Check code
         run: npx ${{ matrix.check }} ${{ matrix.params  || '' }}

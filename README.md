@@ -1,8 +1,14 @@
 # String Helpers
 Some basic JavaScript string helpers, loosely based on Laravel's string helpers.
 
-## Usage
+## Installation
 
+Install from NPM:
+```bash
+npm install @samlevy/string-helpers
+```
+
+## Usage
 ```js
 import Str from "string-helpers";
 

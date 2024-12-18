@@ -1,5 +1,5 @@
 {
-  "name": "@samlev/string-helpers",
+  "name": "@samlevy/string-helpers",
   "type": "module",
   "version": "1.0.0",
   "description": "Basic string helper functions",
@@ -10,7 +10,10 @@
     "dev": "microbundle watch",
     "biome": "biome check",
     "biome-fix": "biome check --fix",
-    "eslint": "eslint"
+    "eslint": "eslint",
+    "eslint-fix": "eslint --fix",
+    "oxlint": "oxlint",
+    "oxlint-fix": "oxlint --fix"
   },
   "repository": {
     "type": "git",
