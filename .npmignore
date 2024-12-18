@@ -11,3 +11,4 @@ biome.json
 *.config.js
 tsconfig.json
 package-lock.json
+.npmrc

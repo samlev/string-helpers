@@ -3,7 +3,7 @@
   "formatter": {
     "enabled": true,
     "useEditorconfig": true,
-    "ignore": ["dist/**"],
+    "ignore": ["dist/**", "package.json", "package-lock.json"],
     "lineWidth": 120
   },
   "linter": {
