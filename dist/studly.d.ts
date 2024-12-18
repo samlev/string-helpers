@@ -1,5 +1,5 @@
 /**
- * Converts a string to Headline Case
+ * Convert a string to StudlyCase
  *
  * @param str
  */
