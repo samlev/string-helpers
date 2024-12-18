@@ -29,6 +29,9 @@ jobs:
         include:
           - check: 'biome'
             params: 'ci --reporter=github'
+          - node: '18'
+            check: 'jest'
+            params: '--experimental-global-webcrypto'
 
     name: Run ${{ matrix.check }} (node ${{ matrix.node }})
 
