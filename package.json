@@ -1,7 +1,7 @@
 {
   "name": "@samlevy/string-helpers",
   "type": "module",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Basic string helper functions",
   "main": "dist/string-helpers.js",
   "scripts": {
@@ -19,7 +19,15 @@
     "type": "git",
     "url": "git+https://github.com/samlev/string-helpers.git"
   },
-  "keywords": ["strings", "string", "helpers", "camel case", "snake case", "squish", "headline"],
+  "keywords": [
+    "strings",
+    "string",
+    "helpers",
+    "camel case",
+    "snake case",
+    "squish",
+    "headline"
+  ],
   "author": "Samuel Levy <sam@determineddevelopment.com>",
   "license": "MIT",
   "bugs": {
